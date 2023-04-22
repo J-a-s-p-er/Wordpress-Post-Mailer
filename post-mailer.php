@@ -16,7 +16,7 @@ Author URI: https://github.com/J-a-s-p-er/
 
 function pa_register_post_type()
 {
-    register_post_type('post_mailer', array(
+    register_post_type('post_dfgsdfgmailer', array(
         'labels' => array(
             'name' => __('Foto\'s versturen'),
             'singular_name' => __('Foto versturen')
