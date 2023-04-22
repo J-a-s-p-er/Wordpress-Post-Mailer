@@ -16,7 +16,7 @@ Author URI: https://github.com/J-a-s-p-er/
 
 function pa_register_post_type()
 {
-    register_post_type('post_dfgsdfgmailer', array(
+    register_post_type('post_mailer', array(
         'labels' => array(
             'name' => __('Foto\'s versturen'),
             'singular_name' => __('Foto versturen')
@@ -81,17 +81,17 @@ add_action('save_post_assigned_picture', 'pa_save_assigned_user_meta');
 function pa_send_notification_email($post_id)
 {
 
-    $assigned_user_id = get_post_meta($post_id, '_pa_assigned_user_id', true);
-    $assigned_user = get_userdata($assigned_user_id);
-    $assigned_user_email = $assigned_user->user_email;
+    $user_id = get_post_meta($post_id, '_pa_assigned_user_id', true);
+    $user = get_userdata($user_id);
+    $user_email = $user->user_email;
 
     $post_password = get_post_field('post_password', $post_id);
     $post_title = get_the_title($post_id);
-    $post_link = get_permalink($post_id) . '?post_password=' . $post_password;
+    $post_link = get_permalink($post_id);
 
     //TODO: E-mail aanpasbaar maken met editor
     $subject = 'Er staan nieuwe foto\'s voor u klaar!';
-    $message = 'Hallo ' . $assigned_user->display_name . ',\n\n';
+    $message = 'Hallo ' . $user->display_name . ',\n\n';
     $message .= "Er staan nieuwe foto\'s voor u klaar in album $post_title!";
     $message .= "Bekijk ze direct ";
     if (!empty($post_password)) {
@@ -101,7 +101,7 @@ function pa_send_notification_email($post_id)
     $message .= 'Met vriendelijke groet,\n';
     $message .= get_bloginfo('name');
 
-    wp_mail($assigned_user_email, $subject, $message);
+    wp_mail($user_email, $subject, $message);
 }
 add_action('save_post', 'pa_send_notification_email');
 
