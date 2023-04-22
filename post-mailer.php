@@ -7,11 +7,11 @@
  */
 /*
 Plugin Name: Foto's versturen
-Plugin URI: -
+Plugin URI: https://github.com/J-a-s-p-er/Wordpress-Post-Mailer
 Description: Wijs foto's aan gebruikers toe stuur ze automatisch een e-mail wanneer je een post bijwerkt.
-Author: Jasper Kuijt
+Author: J-a-s-p-er
 Version: 1.0
-Author URI: -
+Author URI: https://github.com/J-a-s-p-er/
 */
 
 function pa_register_post_type()
