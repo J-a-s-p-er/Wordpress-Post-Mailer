@@ -3,4 +3,4 @@
 
 Importeer de .zip via uw dashboard of plaats post-mailer.php in de plugins map.
 
-Momenteel is het script "personalized" voor een fotograaf, dus er worden veel termen als albums en foto's gebruikt. Dit kunt u eventueel zelf aanpassen in de "pa_send_notification_email" function.
+Momenteel is de plugin gebruikt voor een fotograaf, dus er worden veel termen als albums en foto's gebruikt. Dit kunt u eventueel zelf aanpassen in de "pa_send_notification_email" function.
